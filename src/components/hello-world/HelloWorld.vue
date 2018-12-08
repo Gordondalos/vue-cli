@@ -1,0 +1,28 @@
+<template>
+    <div>
+        <h1>{{name}} vue</h1>
+        <a href="http://google.com">Пойди на гугл</a>
+    </div>
+</template>
+
+<script lang="ts">
+  import Vue from 'vue';
+  // import { Prop } from 'vue-property-decorator'
+
+  export default Vue.extend({
+    name: 'HelloWorld',
+    props: {
+      msg: String,
+    },
+    data: () => {
+      return {
+        name: 'Привет'
+      }
+    }
+  });
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+    @import "./HelloWorld.scss";
+</style>

@@ -2,7 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// глобальная регистрация импорт
+// import Car from './components/car/car.vue'
+
 Vue.config.productionTip = false;
+
+// // глобальная регистрация
+// Vue.component('app-car', Car);
 
 new Vue({
   router,

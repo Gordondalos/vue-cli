@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <img alt="Vue logo" src="../assets/logo.png">
-        <hello-world msg="Welcome to TypeScript App"/>
+        <hello-world :msg="msg" @messageChange="change($event)"/>
     </div>
 </template>
 
@@ -12,8 +12,19 @@
 
   export default Vue.extend({
     name: 'home',
+    data() {
+      return {
+        msg: "Welcome to TypeScript App",
+      }
+    },
     components: {
       'hello-world': HelloWorld,
     },
+    methods: {
+      change(event) {
+        this.msg = event;
+        console.log(event);
+      }
+    }
   });
 </script>

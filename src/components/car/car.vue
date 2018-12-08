@@ -11,7 +11,7 @@
         props: {
             carName: {
                 type: String,
-                required: true,
+                required: false,
                 default: 'Default name'
             },
             carYear: Number,

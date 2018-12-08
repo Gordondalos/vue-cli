@@ -3,6 +3,7 @@
         <h1>{{name}} vue</h1>
         <h2>{{msg}}</h2>
         <a href="http://google.com">Пойди на гугл</a>
+        <button @click="changeName()">Изменить Имя</button>
     </div>
 </template>
 
@@ -15,9 +16,15 @@
     props: {
       msg: String,
     },
-    data: () => {
+    data() {
       return {
         name: 'Привет'
+      }
+    },
+    methods: {
+      changeName() {
+        //this.msg = 'Пока';
+        this.$emit('messageChange', 'Пока')
       }
     }
   });

@@ -1,17 +1,23 @@
 <template>
     <div>
-        <h3>Name : {{carName}}</h3>
-        <p>Year: {{carYear}}</p>
+        <h3 v-if="carName">Name : {{carName}}</h3>
+        <p>Year: {{year}}</p>
     </div>
 </template>
 
 <script>
     export default {
+        props:{
+            carName: String,
+            carYear: String,
+        },
         data() {
             return {
-                carName: "BMV",
-                carYear: "2015"
+                year: 2020
             }
+        },
+        mounted(){
+            this.year = this.carYear ? this.carYear : '2020';
         }
     }
 </script>

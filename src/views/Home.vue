@@ -1,7 +1,10 @@
 <template>
     <div class="home">
         <img alt="Vue logo" src="../assets/logo.png">
-        <hello-world :msg="msg" @messageChange="change($event)"/>
+        <hello-world
+                :changeFunc="changeNameToAudi"
+                :msg="msg"
+                @messageChange="change($event)"/>
     </div>
 </template>
 
@@ -24,6 +27,9 @@
       change(event) {
         this.msg = event;
         console.log(event);
+      },
+      changeNameToAudi() {
+        this.msg = 'И снова сдрасте';
       }
     }
   });

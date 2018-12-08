@@ -4,6 +4,7 @@
         <h2>{{msg}}</h2>
         <a href="http://google.com">Пойди на гугл</a>
         <button @click="changeName()">Изменить Имя</button>
+        <button @click="changeFunc()">Изменить Из Родителя</button>
     </div>
 </template>
 
@@ -15,6 +16,7 @@
     name: 'HelloWorld',
     props: {
       msg: String,
+      changeFunc: Function,
     },
     data() {
       return {

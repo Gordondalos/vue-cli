@@ -5,6 +5,12 @@
         <a href="http://google.com">Пойди на гугл</a>
         <button @click="changeName()">Изменить Имя</button>
         <button @click="changeFunc()">Изменить Из Родителя</button>
+
+        <ul>
+            <li>asdasd</li>
+            <li>asdasd</li>
+            <li>asdasdasd</li>
+        </ul>
     </div>
 </template>
 

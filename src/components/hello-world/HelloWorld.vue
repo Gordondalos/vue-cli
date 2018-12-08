@@ -6,6 +6,8 @@
         <button @click="changeName()">Изменить Имя</button>
         <button @click="changeFunc()">Изменить Из Родителя</button>
 
+        <slot></slot>
+
         <ul>
             <li>asdasd</li>
             <li>asdasd</li>
@@ -51,4 +53,5 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     @import "./HelloWorld.scss";
+
 </style>

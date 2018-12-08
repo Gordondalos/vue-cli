@@ -4,7 +4,11 @@
         <hello-world
                 :changeFunc="changeNameToAudi"
                 :msg="msg"
-                @messageChange="change($event)"/>
+                @messageChange="change($event)">
+
+           <h1 style="color: blueviolet">Фиолетовый цвет {{msg}}</h1>
+
+        </hello-world>
     </div>
 </template>
 

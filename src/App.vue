@@ -6,7 +6,9 @@
       <router-link to="/car">Car</router-link>
     </div>
     <h1>{{msg}}</h1>
-    <app-car :carName="carName" :carYear="2015"></app-car>
+    <app-car
+            :carName="carName"
+            :carYear="2015"></app-car>
     <router-view/>
   </div>
 </template>
@@ -16,6 +18,11 @@
   export default {
       components: {
           appCar: Car,
+      },
+      methods: {
+          sendNewNAme(event){
+
+          }
       },
       data () {
           return {

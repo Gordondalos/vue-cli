@@ -10,6 +10,8 @@ Vue.config.productionTip = false;
 // // глобальная регистрация
 // Vue.component('app-car', Car);
 
+export const eventEmitter = new Vue();
+
 new Vue({
   router,
   render: h => h(App)

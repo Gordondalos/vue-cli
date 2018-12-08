@@ -12,6 +12,8 @@
   import Vue from 'vue';
   // import { Prop } from 'vue-property-decorator'
 
+  import {eventEmitter} from '@/main.ts';
+
   export default Vue.extend({
     name: 'HelloWorld',
     props: {
@@ -28,7 +30,15 @@
         //this.msg = 'Пока';
         this.$emit('messageChange', 'Пока')
       }
+    },
+
+    created(){
+      eventEmitter.$on('sendCurrentNAme', (event) => {
+        console.log(event);
+        this.name = event;
+      })
     }
+
   });
 </script>
 

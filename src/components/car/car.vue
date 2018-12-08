@@ -3,10 +3,12 @@
         <h3 v-if="carName">Name : {{carName}}</h3>
         <p>Year: {{year}}</p>
         <p>{{reverseName}}</p>
+        <button @click="send()">Отпраь меня</button>
     </div>
 </template>
 
 <script>
+    import {eventEmitter} from '@/main.ts';
     export default {
         props: {
             carName: {
@@ -28,9 +30,15 @@
                 year: 2020
             }
         },
+        methods: {
+            send() {
+                // this.$emit('sendCurrentNAme', this.carName + '123')
+                eventEmitter.$emit('sendCurrentNAme', this.carName + '123')
+            }
+        },
         computed: {
             reverseName() {
-                return this.carName.split('').reverse().join('');
+                return this.carName.split( '' ).reverse().join( '' );
             }
         },
         mounted() {

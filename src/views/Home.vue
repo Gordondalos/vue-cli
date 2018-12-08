@@ -6,7 +6,9 @@
                 :msg="msg"
                 @messageChange="change($event)">
 
-           <h1 style="color: blueviolet">Фиолетовый цвет {{msg}}</h1>
+           <h1 slot="title" style="color: blueviolet">Фиолетовый цвет {{msg}}</h1>
+
+            <h6 slot="text">Привет мир</h6>
 
         </hello-world>
     </div>

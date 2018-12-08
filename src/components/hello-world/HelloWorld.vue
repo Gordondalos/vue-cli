@@ -6,13 +6,15 @@
         <button @click="changeName()">Изменить Имя</button>
         <button @click="changeFunc()">Изменить Из Родителя</button>
 
-        <slot></slot>
+        <slot name="title"></slot>
 
         <ul>
             <li>asdasd</li>
             <li>asdasd</li>
             <li>asdasdasd</li>
         </ul>
+
+        <slot name="text"></slot>
     </div>
 </template>
 

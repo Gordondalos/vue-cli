@@ -18,6 +18,7 @@ import Inputs from './views/Inputs.vue'
 Vue.component('list', List);
 Vue.component('inputs', Inputs);
 
+
 Vue.use(Vuelidate);
 Vue.use(_);
 Vue.use(VureResource);
@@ -28,6 +29,9 @@ Vue.mixin({
     // console.log('beforeCreate');
   }
 });
+
+
+Vue.http.options.root = 'http://localhost:9999/';
 
 // регистрация фильтров глобально
 Vue.filter('uppercaseMy', (value: string) => value.toUpperCase());

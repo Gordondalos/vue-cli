@@ -79,7 +79,9 @@
 <script>
     export default {
         created(){
-            this.resource = this.$resource('http://localhost:9999/cars');
+            // this.resource = this.$resource('http://localhost:9999/cars');
+            // так как базовый урл задан в main.ts
+            this.resource = this.$resource('cars');
         },
         props: [
             'value'
@@ -94,16 +96,10 @@
                 const res1  = await this.resource.get();
                 console.log('res1', res1.body);
 
-                const res = await this.$http.get( 'http://localhost:9999/cars');
-                console.log(res.body);
-                // _.each(res.body, (car) => {
-                //     this.cars.push({
-                //       name: car.name,
-                //       year: car.year,
-                //       id: car.id,
-                //     })
-                // });
-                this.cars = res.body;
+                // const res = await this.$http.get( 'http://localhost:9999/cars');
+                // console.log(res.body);
+
+                this.cars = res1.body;
             },
 
             async create() {

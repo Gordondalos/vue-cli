@@ -20,11 +20,17 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import { eventEmitter } from '@/main.ts';
+  import { Colored } from '@/directives/color'
   // import { Prop } from 'vue-property-decorator'
 
-  import {eventEmitter} from '@/main.ts';
-
   export default Vue.extend({
+
+    // локальная регистрация директив
+    directives: {
+      'v-colored': Colored
+    },
+
     name: 'HelloWorld',
     props: {
       msg: String,
@@ -42,7 +48,7 @@
       }
     },
 
-    created(){
+    created() {
       eventEmitter.$on('sendCurrentNAme', (event) => {
         console.log(event);
         this.name = event;

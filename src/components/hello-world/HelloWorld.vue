@@ -14,6 +14,12 @@
             <li>asdasdasd</li>
         </ul>
 
+        <input type="text" v-model="filterText">
+
+        <ul>
+            <li v-for="person of filteredNames">{{person.name}}</li>
+        </ul>
+
         <slot name="text"></slot>
     </div>
 </template>
@@ -29,7 +35,7 @@
 
     filters: {
       lowercase,
-      uppercase(value){
+      uppercase(value) {
         return value.toUpperCase();
       }
     },
@@ -43,10 +49,25 @@
     props: {
       msg: String,
       changeFunc: Function,
+
     },
+    computed: {
+      filteredNames() {
+        return this.persons.filter((person) => {
+          return person.name.indexOf(this.filterText) !== -1
+        })
+      }
+    },
+
     data() {
       return {
-        name: 'Привет'
+        name: 'Привет',
+        filterText: '',
+        persons: [
+          { name: 'Вася' },
+          { name: 'Таня' },
+          { name: 'Коля' },
+        ]
       }
     },
     methods: {

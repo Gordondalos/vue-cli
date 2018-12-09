@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{name}} vue</h1>
+        <h1 v-colored>{{name}} vue</h1>
         <h2>{{msg}}</h2>
         <a href="http://google.com">Пойди на гугл</a>
         <button @click="changeName()">Изменить Имя</button>

@@ -5,10 +5,13 @@ import router from './router'
 // глобальная регистрация импорт
 // import Car from './components/car/car.vue'
 
+import ColorDirective from './directives/color'
+
 Vue.config.productionTip = false;
 
 // // глобальная регистрация
 // Vue.component('app-car', Car);
+ Vue.directive('colored', ColorDirective);
 
 export const eventEmitter = new Vue();
 

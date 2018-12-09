@@ -5,7 +5,18 @@ import router from './router'
 // глобальная регистрация импорт
 // import Car from './components/car/car.vue'
 
+import List from '@/views/List.vue'
+
 import ColorDirective from './directives/color'
+
+Vue.component('list', List);
+
+// глобальный миксин будет применен ко всем компонентам
+Vue.mixin({
+  beforeCreate(){
+    console.log('beforeCreate');
+  }
+});
 
 // регистрация фильтров глобально
 Vue.filter('uppercaseMy', (value: string) => value.toUpperCase());

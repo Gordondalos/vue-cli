@@ -14,11 +14,7 @@
             <li>asdasdasd</li>
         </ul>
 
-        <input type="text" v-model="filterText">
 
-        <ul>
-            <li v-for="person of filteredNames">{{person.name}}</li>
-        </ul>
 
         <slot name="text"></slot>
     </div>
@@ -51,23 +47,11 @@
       changeFunc: Function,
 
     },
-    computed: {
-      filteredNames() {
-        return this.persons.filter((person) => {
-          return person.name.indexOf(this.filterText) !== -1
-        })
-      }
-    },
+
 
     data() {
       return {
         name: 'Привет',
-        filterText: '',
-        persons: [
-          { name: 'Вася' },
-          { name: 'Таня' },
-          { name: 'Коля' },
-        ]
       }
     },
     methods: {

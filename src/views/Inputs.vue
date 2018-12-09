@@ -1,5 +1,8 @@
 <template>
     <div>
+
+        <input type="text" v-model.number="num">
+
         <textarea v-model="mytext" name="mytext" id="mytextarea"></textarea>
 
         <hr>
@@ -61,13 +64,17 @@
                 ],
                 socialRadio: 'ok',
                 socialSelect: ['ОК', 'VK', 'FB'],
-                selected: 'ОК'
+                selected: 'ОК',
+                num: 1,
 
             }
         },
 
         watch:  {
-            social: function() {
+            num(value){
+              console.log(typeof value);
+            },
+            social(value) {
                 console.log(this.social);
             },
             socialRadio: function (  ) {

@@ -7,6 +7,9 @@ import router from './router'
 
 import ColorDirective from './directives/color'
 
+// регистрация фильтров глобально
+Vue.filter('uppercaseMy', (value: string) => value.toUpperCase());
+
 Vue.config.productionTip = false;
 
 // // глобальная регистрация

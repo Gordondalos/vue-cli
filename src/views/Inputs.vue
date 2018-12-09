@@ -35,7 +35,14 @@
             return {
                 mytext: 'Это я твой текст',
                 social: [
+                    'ok'
                 ]
+            }
+        },
+
+        watch:  {
+            social: function() {
+                console.log(this.social);
             }
         }
 

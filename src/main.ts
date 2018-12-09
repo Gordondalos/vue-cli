@@ -1,6 +1,9 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+
+import Vuelidate from 'vuelidate'
+import * as _ from 'lodash';
 
 // глобальная регистрация импорт
 // import Car from './components/car/car.vue'
@@ -13,10 +16,13 @@ import Inputs from './views/Inputs.vue'
 Vue.component('list', List);
 Vue.component('inputs', Inputs);
 
+Vue.use(Vuelidate);
+Vue.use(_);
+
 // глобальный миксин будет применен ко всем компонентам
 Vue.mixin({
   beforeCreate(){
-    console.log('beforeCreate');
+    // console.log('beforeCreate');
   }
 });
 

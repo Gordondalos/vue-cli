@@ -3,12 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/car">Car</router-link>
+      <router-link to="/car">Car</router-link> |
+      <router-link to="/validation">Validation</router-link>
     </div>
-    <h1>{{msg}}</h1>
-    <app-car
-            :carName="carName"
-            :carYear="2015"></app-car>
     <router-view/>
   </div>
 </template>
@@ -34,5 +31,6 @@
 </script>
 
 <style>
+  @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
   @import "./styles/main.scss";
 </style>

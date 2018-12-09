@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 v-colored:background="'#fff'">{{name}} vue</h1>
+        <h1 v-colored:background.font.delay="'#fff'">{{name}} vue</h1>
         <h2>{{msg}}</h2>
         <a href="http://google.com">Пойди на гугл</a>
         <button @click="changeName()">Изменить Имя</button>

@@ -3,21 +3,25 @@
 
         <button @click="goToBack()" class="btn btn-sm btn-info">back</button>
 
+        <br>
         <router-link
-                    v-if="id"
-                    tag="button"
-                     :to="`/car/${id}/full`"
-                     @click="goToNext()"
-                     class="btn btn-sm btn-warning">Идем дальше</router-link>
+                v-if="id"
+                tag="button"
+                :to="`/car/${id}/full?name=Ford&year=2005`"
+                @click="goToNext()"
+                class="btn btn-sm btn-warning">Идем дальше
+        </router-link>
 
 
+        <br>
         <!--или так можно указать под роут в парамете ту-->
         <router-link
                 v-if="id"
                 tag="button"
-                :to="{name: 'carFull', params: {id: id }}"
+                :to="{name: 'carFull', params: {id: id }, query: {name: 'Mazda', year: '2000'}}"
                 @click="goToNext()"
-                class="btn btn-sm btn-warning">Идем дальше</router-link>
+                class="btn btn-sm btn-warning">Идем дальше
+        </router-link>
 
         <h1>Car id {{id}}</h1>
         <h3 v-if="carName">Name : {{carName}}</h3>
@@ -35,7 +39,8 @@
 </template>
 
 <script>
-    import {eventEmitter} from '@/main.ts';
+    import { eventEmitter } from '@/main.ts';
+
     export default {
         props: {
             carName: {
@@ -56,23 +61,23 @@
             return {
                 year: 2020,
                 //id: this.$router.currentRoute.params['id'] // получение доступа к элементам роута
-                id: this.$route.params['id'], // или так
+                id: this.$route.params[ 'id' ], // или так
             }
         },
         watch: {
-          $route(toR, fromR){
-              this.id = toR.params['id'];
-          }
+            $route( toR, fromR ) {
+                this.id = toR.params[ 'id' ];
+            }
         },
         methods: {
             send() {
                 // this.$emit('sendCurrentNAme', this.carName + '123')
-                eventEmitter.$emit('sendCurrentNAme', this.carName + '123')
+                eventEmitter.$emit( 'sendCurrentNAme', this.carName + '123' )
             },
-            goToBack(){
-                this.$router.push('/')
+            goToBack() {
+                this.$router.push( '/' )
             },
-            goToNext(){
+            goToNext() {
 
             }
 

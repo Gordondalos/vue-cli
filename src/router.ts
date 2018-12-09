@@ -11,6 +11,12 @@ export default new Router({
   mode: 'history', // убрать решетки в роутере
   routes: [
     {
+      path: '/car/:id',
+      name: 'car',
+      component: Car
+    },
+
+    {
       path: '/',
       name: 'home',
       component: Home

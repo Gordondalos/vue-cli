@@ -1,7 +1,10 @@
 <template>
     <div>
         <input type="text" v-model="filterText">
+        <hr>
+        <input type="text" v-model.lazy="name">
 
+        <p>{{name}}</p>
         <ul>
             <li v-for="(person, index) in filteredNames" :key="index">
                {{index}} {{person.name}}
@@ -28,6 +31,7 @@
                     { name: 'Кузя' },
                 ],
                 filterText: '',
+                name: 'Привет я тут',
             }
         },
 

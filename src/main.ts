@@ -8,8 +8,10 @@ import router from './router'
 import List from '@/views/List.vue'
 
 import ColorDirective from './directives/color'
+import Inputs from './views/Inputs.vue'
 
 Vue.component('list', List);
+Vue.component('inputs', Inputs);
 
 // глобальный миксин будет применен ко всем компонентам
 Vue.mixin({

@@ -50,12 +50,29 @@
         </select>
 
 
+        <button
+            @click="onChange(false)"
+            :class="{'active': !value}"
+            class="of"
+        >of</button>
+        <button
+                @click="onChange(true)"
+                :class="{'active': value}"
+                class="on">on</button>
         <p>{{mytext}}</p>
     </div>
 </template>
 
 <script>
     export default {
+        props: [
+          'value'
+        ],
+        methods: {
+          onChange(newValue){
+            this.$emit('input', newValue)
+          }
+        },
         data(){
             return {
                 mytext: 'Это я твой текст',
@@ -90,6 +107,20 @@
 </script>
 
 <style scoped>
+
+    * {
+        outline: none;
+    }
+
+    button {
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .active {
+        background-color: red;
+        color: white;
+    }
 
     textarea {
         width: 50%;

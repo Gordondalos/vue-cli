@@ -65,6 +65,14 @@
         <p>{{mytext}}</p>
 
         <button class="btn btn-sm btn-info" @click="create()">Создать</button>
+        <button class="btn btn-sm btn-info" @click="load()">Загрузить мои машины</button>
+
+        <ul class="list-group container my-5">
+            <li :key="car.id" class="list-group-item" v-for="car in cars">
+                <span>{{car.id}}</span> - <span>{{car.name}}</span> - <span>{{car.year}}</span>
+            </li>
+        </ul>
+
     </div>
 </template>
 
@@ -76,6 +84,19 @@
         methods: {
             onChange( newValue ) {
                 this.$emit( 'input', newValue )
+            },
+
+            async load(){
+                const res = await this.$http.get( 'http://localhost:9999/cars');
+                console.log(res.body);
+                // _.each(res.body, (car) => {
+                //     this.cars.push({
+                //       name: car.name,
+                //       year: car.year,
+                //       id: car.id,
+                //     })
+                // });
+                this.cars = res.body;
             },
 
             async create() {
@@ -107,6 +128,7 @@
                 socialSelect: [ 'ОК', 'VK', 'FB' ],
                 selected: 'ОК',
                 num: 1,
+                cars: [],
 
             }
         },
@@ -153,6 +175,10 @@
 
     p {
         white-space: pre;
+    }
+
+    li {
+        background-color: #2c3e50;
     }
 
 </style>

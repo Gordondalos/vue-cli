@@ -78,6 +78,9 @@
 
 <script>
     export default {
+        created(){
+            this.resource = this.$resource('http://localhost:9999/cars');
+        },
         props: [
             'value'
         ],
@@ -87,6 +90,10 @@
             },
 
             async load(){
+
+                const res1  = await this.resource.get();
+                console.log('res1', res1.body);
+
                 const res = await this.$http.get( 'http://localhost:9999/cars');
                 console.log(res.body);
                 // _.each(res.body, (car) => {
@@ -104,11 +111,13 @@
                     name: this.mytext,
                     year: this.num,
                 };
+
+                const res1  = await this.resource.save({}, car);
+                console.log('res1', res1.body);
+
                 const res = await this.$http.post( 'http://localhost:9999/cars', car);
                 console.log(res.body)
-
-
-                    // .then(response => {
+                // .then(response => {
                     //     return response.json();
                     // })
                     // .then(newCar => {
@@ -120,6 +129,7 @@
         },
         data() {
             return {
+                resource: '',
                 mytext: 'Это я твой текст',
                 social: [
                     'ok'

@@ -10,6 +10,21 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history', // убрать решетки в роутере
+  scrollBehavior(to, from, savedPosition) {
+
+    if(savedPosition) {
+      return savedPosition; // если на этой странице мы ходили и скролили то пойдет к этой позиции
+    }
+
+    if (to.hash) {
+      return { selector: to.hash } // если тут есть хеш то пойдет к нему
+    }
+
+    return { // в просивном случае пойдет к верху страницы
+      x: 0,
+      y: 0,
+    }
+  },
   routes: [
     {
       path: '/car/:id',

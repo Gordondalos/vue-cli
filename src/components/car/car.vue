@@ -7,7 +7,7 @@
         <router-link
                 v-if="id"
                 tag="button"
-                :to="`/car/${id}/full?name=Ford&year=2005`"
+                :to="`/car/${id}/full?name=Ford&year=2005#scroll`"
                 @click="goToNext()"
                 class="btn btn-sm btn-warning">Идем дальше
         </router-link>
@@ -18,7 +18,7 @@
         <router-link
                 v-if="id"
                 tag="button"
-                :to="{name: 'carFull', params: {id: id }, query: {name: 'Mazda', year: '2000'}}"
+                :to="{name: 'carFull', params: {id: id }, query: {name: 'Mazda', year: '2000'}, hash: '#scroll'}"
                 @click="goToNext()"
                 class="btn btn-sm btn-warning">Идем дальше
         </router-link>

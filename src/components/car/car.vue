@@ -3,11 +3,34 @@
 
         <button @click="goToBack()" class="btn btn-sm btn-info">back</button>
 
+        <router-link
+                    v-if="id"
+                    tag="button"
+                     :to="`/car/${id}/full`"
+                     @click="goToNext()"
+                     class="btn btn-sm btn-warning">Идем дальше</router-link>
+
+
+        <!--или так можно указать под роут в парамете ту-->
+        <router-link
+                v-if="id"
+                tag="button"
+                :to="{name: 'carFull', params: {id: id }}"
+                @click="goToNext()"
+                class="btn btn-sm btn-warning">Идем дальше</router-link>
+
         <h1>Car id {{id}}</h1>
         <h3 v-if="carName">Name : {{carName}}</h3>
         <p>Year: {{year}}</p>
         <p>{{reverseName}}</p>
         <button @click="send()">Отпраь меня</button>
+
+        <div class="container">
+            <div class="row">
+                <router-view/>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -48,7 +71,11 @@
             },
             goToBack(){
                 this.$router.push('/')
+            },
+            goToNext(){
+
             }
+
         },
         computed: {
             reverseName() {

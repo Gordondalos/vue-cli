@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Validation from './views/Validation.vue'
 import Car from './components/car/car.vue'
+import CarFull from './components/car/car-full.vue'
 
 
 Vue.use(Router);
@@ -13,7 +14,14 @@ export default new Router({
     {
       path: '/car/:id',
       name: 'car',
-      component: Car
+      component: Car,
+      children: [
+        {
+          path: 'full', // localhost:8080/car/10/full
+          name: 'carFull',
+          component: CarFull,
+        }
+      ]
     },
 
     {

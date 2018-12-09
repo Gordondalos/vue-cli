@@ -2,6 +2,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 
+import VureResource from 'vue-resource'
+
 import Vuelidate from 'vuelidate'
 import * as _ from 'lodash';
 
@@ -18,6 +20,7 @@ Vue.component('inputs', Inputs);
 
 Vue.use(Vuelidate);
 Vue.use(_);
+Vue.use(VureResource);
 
 // глобальный миксин будет применен ко всем компонентам
 Vue.mixin({

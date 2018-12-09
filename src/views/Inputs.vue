@@ -1,9 +1,10 @@
 <template>
     <div>
 
+        <label >год</label>
         <input type="text" v-model.number="num">
 
-        <textarea v-model="mytext" name="mytext" id="mytextarea"></textarea>
+        <textarea v-model.trim="mytext" name="mytext" id="mytextarea"></textarea>
 
         <hr>
 
@@ -51,54 +52,77 @@
 
 
         <button
-            @click="onChange(false)"
-            :class="{'active': !value}"
-            class="of"
-        >of</button>
+                @click="onChange(false)"
+                :class="{'active': !value}"
+                class="of"
+        >of
+        </button>
         <button
                 @click="onChange(true)"
                 :class="{'active': value}"
-                class="on">on</button>
+                class="on">on
+        </button>
         <p>{{mytext}}</p>
+
+        <button class="btn btn-sm btn-info" @click="create()">Создать</button>
     </div>
 </template>
 
 <script>
     export default {
         props: [
-          'value'
+            'value'
         ],
         methods: {
-          onChange(newValue){
-            this.$emit('input', newValue)
-          }
+            onChange( newValue ) {
+                this.$emit( 'input', newValue )
+            },
+
+            async create() {
+                const car = {
+                    name: this.mytext,
+                    year: this.num,
+                };
+                const res = await this.$http.post( 'http://localhost:9999/cars', car);
+                console.log(res.body)
+
+
+                    // .then(response => {
+                    //     return response.json();
+                    // })
+                    // .then(newCar => {
+                    //     console.log(newCar);
+                    //     this.mytext = '';
+                    //     this.num = 0;
+                    // })
+            }
         },
-        data(){
+        data() {
             return {
                 mytext: 'Это я твой текст',
                 social: [
                     'ok'
                 ],
                 socialRadio: 'ok',
-                socialSelect: ['ОК', 'VK', 'FB'],
+                socialSelect: [ 'ОК', 'VK', 'FB' ],
                 selected: 'ОК',
                 num: 1,
 
             }
         },
 
-        watch:  {
-            num(value){
-              console.log(typeof value);
+        watch: {
+            num( value ) {
+                console.log( typeof value );
             },
-            social(value) {
-                console.log(this.social);
+            social( value ) {
+                console.log( this.social );
             },
-            socialRadio: function (  ) {
-                console.log(this.socialRadio);
+            socialRadio: function () {
+                console.log( this.socialRadio );
             },
-            selected: function (  ) {
-                console.log(this.selected);
+            selected: function () {
+                console.log( this.selected );
             }
         }
 

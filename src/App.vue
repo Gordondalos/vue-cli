@@ -15,7 +15,7 @@
   import Car from './components/car/car.vue'
   export default {
       components: {
-          appCar: Car,
+         // appCar: Car,
       },
       methods: {
           sendNewNAme(event){

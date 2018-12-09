@@ -19,6 +19,22 @@
             Однокласники
         </label>
 
+
+        <label>
+            <input v-model="socialRadio" type="radio" value="instagram">
+            Инстаграм
+        </label>
+
+        <label>
+            <input v-model="socialRadio" type="radio" value="tw">
+            Твитер
+        </label>
+
+        <label>
+            <input v-model="socialRadio" type="radio" value="ok">
+            Однокласники
+        </label>
+
         <ul>
             <li v-for="(elem, index) in social" :key="index">
                 {{elem}}
@@ -36,13 +52,18 @@
                 mytext: 'Это я твой текст',
                 social: [
                     'ok'
-                ]
+                ],
+                socialRadio: 'ok',
+
             }
         },
 
         watch:  {
             social: function() {
                 console.log(this.social);
+            },
+            socialRadio: function (  ) {
+                console.log(this.socialRadio);
             }
         }
 

@@ -41,6 +41,12 @@
             </li>
         </ul>
 
+
+        <select v-model="selected" name="myselect" id="select">
+            <option :key="index" v-for="(item, index) of socialSelect" :value="item">{{item}}</option>
+        </select>
+
+
         <p>{{mytext}}</p>
     </div>
 </template>
@@ -54,6 +60,8 @@
                     'ok'
                 ],
                 socialRadio: 'ok',
+                socialSelect: ['ОК', 'VK', 'FB'],
+                selected: 'ОК'
 
             }
         },
@@ -64,6 +72,9 @@
             },
             socialRadio: function (  ) {
                 console.log(this.socialRadio);
+            },
+            selected: function (  ) {
+                console.log(this.selected);
             }
         }
 

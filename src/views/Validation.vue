@@ -92,8 +92,12 @@
             },
 
             password2: {
-                sameAs: sameAs( 'password' ),
+                // sameAs: sameAs( 'password' ),
                 required,
+                sameAs: sameAs((vue) => {
+                    console.log(vue);
+                    return vue.password
+                })
             }
         },
 

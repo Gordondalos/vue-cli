@@ -8,6 +8,7 @@ import Car from './components/car/car.vue'
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history', // убрать решетки в роутере
   routes: [
     {
       path: '/',

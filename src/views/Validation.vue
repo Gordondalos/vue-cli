@@ -2,7 +2,7 @@
     <div>
         <div class="container text-left">
             <h1>Валидация</h1>
-            <form>
+            <form @submit.prevent="onSubmit()">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
 
@@ -65,6 +65,8 @@
 
                     </div>
                 </div>
+
+                <button class="btn btn-success" :disabled="$v.$invalid">Отправить</button>
             </form>
         </div>
 
@@ -75,6 +77,12 @@
     import { required, email, minLength, sameAs } from 'vuelidate/lib/validators'
 
     export default {
+
+        methods: {
+            onSubmit(){
+                console.log(this.email, this.password);
+            }
+        },
 
         data() {
             return {
@@ -92,7 +100,7 @@
                     if(newEmail === '') return true;
                     return new Promise((resolve) => {
                         setTimeout(() => {
-                            const value = newEmail === 'gordondalos@gmial.com';
+                            const value = newEmail !== 'gordondalos@gmial.com';
                             resolve(value)
                         }, 3000)
                     })

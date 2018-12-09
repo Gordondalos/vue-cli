@@ -30,7 +30,7 @@
       'hello-world': HelloWorld,
     },
     methods: {
-      change(event) {
+      change(event: string): void {
         this.msg = event;
         console.log(event);
       },

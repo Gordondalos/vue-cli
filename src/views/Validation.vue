@@ -19,6 +19,9 @@
                         <div class="invalid-feedback" v-if="!$v.email.email">
                             Не верная почта
                         </div>
+                        <div class="invalid-feedback" v-if="!$v.email.uniqEmail">
+                            Такой уже есть
+                        </div>
 
 
                         <pre>
@@ -85,6 +88,15 @@
             email: {
                 required,
                 email,
+                uniqEmail: ( newEmail ) => {
+                    if(newEmail === '') return true;
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            const value = newEmail === 'gordondalos@gmial.com';
+                            resolve(value)
+                        }, 3000)
+                    })
+                }
             },
             password: {
                 minLength: minLength( 6 ),
@@ -94,10 +106,10 @@
             password2: {
                 // sameAs: sameAs( 'password' ),
                 required,
-                sameAs: sameAs((vue) => {
-                    console.log(vue);
+                sameAs: sameAs( ( vue ) => {
+                    console.log( vue );
                     return vue.password
-                })
+                } )
             }
         },
 
